@@ -19,5 +19,7 @@ namespace Dine.DataModel.Models
         public long UserId { get; set; }
         public int TotalSeats { get; set; } = 0;
         public int TotalSeatsAvailable { get; set; } = 0;
+        public ICollection<Payment> PaymentList { get; set; }
+
     }
 }

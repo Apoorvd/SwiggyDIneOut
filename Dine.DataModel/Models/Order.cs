@@ -16,6 +16,6 @@ namespace Dine.DataModel.Models
         public double TotalPrice { get; set; }
         public int AppliedOngoingOffer { get; set; } = 0; // OfferID is used here
         public int CalculatedTax { get; set; }
-
+        public ICollection<Payment> PaymentList { get; set; }
     }
 }

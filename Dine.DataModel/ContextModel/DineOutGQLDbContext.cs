@@ -30,6 +30,7 @@ namespace Dine.DataModel.ContextModel
         public DbSet<ReservationStatus> ReservationStatus { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<Review> Review { get; set; }
+        public DbSet<Payment> Payment {  get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

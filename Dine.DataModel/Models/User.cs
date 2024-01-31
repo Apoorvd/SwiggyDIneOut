@@ -21,7 +21,6 @@ namespace Dine.DataModel.Models
         public int UserTypeId { get; set; }
         public ICollection<Address> AddressList { get; set; }
         public ICollection<Review> ReviewList { get; set; }
-
-
+        public ICollection<Payment> PaymentList { get; set; }
     }
 }
