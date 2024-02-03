@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Dine.Utilities.Helper;
 
 namespace Dine.Service.Repositories
 {
@@ -20,20 +22,41 @@ namespace Dine.Service.Repositories
 
             _dbContext = dbContext;
         }
-
-        public void AddAddress(long userID, string address)
+        public async Task<long> SetDefaultAddress(long Id)
         {
-            throw new NotImplementedException();
+            var result = await _dbContext.Address.FirstOrDefaultAsync(x => x.Id == Id);
+            return result == null ? 0 : result.Id;
+
+        }
+        public async Task<Address> GetAddress(long Id)
+        {
+            var result = await _dbContext.Address.FirstOrDefaultAsync(x => x.Id == Id);
+            return result;
+
+        }
+        public async void AddAddress(long userID, Address address)
+        {
+            var allAddress = await this.GetAddressByUserID(userID);
+            bool isValid = AddressHelper.ValidateAddress(address);
+            // see if the address is valid or not
+            // thrwo exception if not valid
+            // Add new ADDRESS
+
+        }
+        
+
+        public async Task<List<Address>> GetAddressByUserID(long userID)
+        {
+            var result = await _dbContext.Address.Include(u => u.UserId == userID).ToListAsync();
+            return result;
         }
 
-        public Address GetAddressByUserID(long userID)
+        public async void UpdateAddress(Address address)
         {
-            throw new NotImplementedException();
-        }
+            var adrs = await this.GetAddress(address.Id);
+            //validate which part of address is changing and is it a feasible change
 
-        public void UpdateAddress(long userID, string address)
-        {
-            throw new NotImplementedException();
+
         }
     }
 }

@@ -9,8 +9,10 @@ namespace Dine.Service.Contracts
 {
     public interface IAddressRepository
     {
-        Address GetAddressByUserID(long userID);
-        void UpdateAddress(long userID, string address);
-        void AddAddress(long userID, string address);
+        Task<List<Address>> GetAddressByUserID(long userID);
+        Task<Address> GetAddress(long id);
+        Task<long> SetDefaultAddress(long id);
+        void UpdateAddress(Address address);
+        void AddAddress(long userID, Address address);
     }
 }
