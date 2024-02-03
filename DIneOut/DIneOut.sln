@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dine.GQLTypes", "..\Dine.GQ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dine.Utilities", "..\Dine.Utilities\Dine.Utilities.csproj", "{5E924AE2-A14A-4399-839D-5BF267B5D4C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dine.Service", "..\Dine.DataAccess\Dine.Service.csproj", "{06F5177C-157B-4647-8316-F61BBD5D3B6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dine.Service", "..\Dine.Service\Dine.Service.csproj", "{06F5177C-157B-4647-8316-F61BBD5D3B6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
