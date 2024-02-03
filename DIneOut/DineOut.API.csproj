@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dine.DataModel\Dine.DataModel.csproj" />
+    <ProjectReference Include="..\Dine.Utilities\Dine.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

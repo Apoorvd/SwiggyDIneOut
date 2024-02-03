@@ -1,5 +1,5 @@
-﻿using Dine.DataModel;
-using Dine.DataModel.ContextModel;
+﻿using Dine.DataModel.ContextModel;
+using Dine.Utilities.SeedDataUtil;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

@@ -1,19 +1,19 @@
 ﻿using Dine.DataModel.ContextModel;
-using Dine.DataModel.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dine.DataModel.Models;
 
-namespace Dine.DataModel
+namespace Dine.Utilities.SeedDataUtil
 {
     public static class DineOutSeedData
     {
         public static void EnsureEnumSeedData(this DineOutGQLDbContext db)
         {
-            if(!db.OfferApp.Any())
+            if (!db.OfferApp.Any())
             {
                 db.OfferApp.SeedEnumValuesAdd<OfferApp, OfferAppEnum>(@enum => @enum);
                 db.SaveChanges();

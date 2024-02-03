@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DineOut.API", "DineOut.API.csproj", "{B7A9B715-6EC1-4C82-AF32-BF00F558DD76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dine.DataAccess", "..\Dine.DataAccess\Dine.DataAccess.csproj", "{9F8E927C-67DB-4E22-B7C2-C6A0894AEDFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dine.Service", "..\Dine.DataAccess\Dine.Service.csproj", "{9F8E927C-67DB-4E22-B7C2-C6A0894AEDFF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dine.DataModel", "..\Dine.DataModel\Dine.DataModel.csproj", "{33BEAD91-661F-4DD5-9260-7C921EBEE570}"
 EndProject

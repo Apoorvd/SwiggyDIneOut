@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace Dine.DataAccess.Contracts
+namespace Dine.Service.Contracts
 {
     public interface IUserRepository
     {

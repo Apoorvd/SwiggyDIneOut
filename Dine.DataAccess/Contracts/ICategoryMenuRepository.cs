@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dine.DataAccess.Contracts
+namespace Dine.Service.Contracts
 {
     public interface ICategoryMenuRepository
     {

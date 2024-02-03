@@ -5,13 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dine.DataAccess.Contracts
+namespace Dine.Service.Contracts
 {
     public interface IAddressRepository
     {
         Address GetAddressByUserID(long userID);
-        Address GetAddressByEmail(string email);
-        Address GetAddressByPhoneNumber(string phoneNumber);
         void UpdateAddress(long userID, string address);
         void AddAddress(long userID, string address);
     }
