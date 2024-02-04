@@ -26,13 +26,11 @@ namespace Dine.Service.Repositories
         {
             var result = await _dbContext.Address.FirstOrDefaultAsync(x => x.Id == Id);
             return result == null ? 0 : result.Id;
-
         }
         public async Task<Address> GetAddress(long Id)
         {
             var result = await _dbContext.Address.FirstOrDefaultAsync(x => x.Id == Id);
             return result;
-
         }
         public async void AddAddress(long userID, Address address)
         {

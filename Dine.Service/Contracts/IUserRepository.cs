@@ -11,10 +11,10 @@ namespace Dine.Service.Contracts
 {
     public interface IUserRepository
     {
-        User GetUserById(long userId); //: Fetch a user by ID.
-        User GetUserByEmail(string email); //: Fetch a user by email.
-        User GetUserByPhoneNumber(string phoneNumber);
-        bool RegisterUser(User user); //: Create a new user.
-        bool UpdateUserProfile(User user); //: Update user details.
+        Task<User> GetUserById(long userId); //: Fetch a user by ID.
+        Task<User> GetUserByEmail(string email); //: Fetch a user by email.
+        Task<User> GetUserByPhoneNumber(string phoneNumber);
+        Task<string> RegisterUser(User user); //: Create a new user.
+        Task<string> UpdateUserProfile(User user); //: Update user details.
     }
 }

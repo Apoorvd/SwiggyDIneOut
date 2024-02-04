@@ -8,17 +8,24 @@ using System.Threading.Tasks;
 
 namespace Dine.Utilities.Helper
 {
-    public class AddressHelper
+    public class UserHelper
     {
-        public static bool ValidateAddress(Address address)
+        public static string CheckWhatChanged(User userDb, User user)
         {
-
-            return true;
+            //check the difference between two.
+            return null;
         }
-        public static string JSONifyObject(ResultHelper<Address> input)
+
+        public static string JSONifyObject(ResultHelper<User> input)
         {
             var result = Newtonsoft.Json.JsonConvert.SerializeObject(input);
             return result;
+        }
+
+        public static bool ValidateUser(User user)
+        {
+            //Build logic here
+            return true;
         }
     }
 }
