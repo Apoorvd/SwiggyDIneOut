@@ -4,6 +4,7 @@ using Dine.DataModel.ContextModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dine.DataModel.Migrations
 {
     [DbContext(typeof(DineOutGQLDbContext))]
-    partial class DineOutGQLDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240204193754_addpayment")]
+    partial class addpayment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,9 +38,6 @@ namespace Dine.DataModel.Migrations
 
                     b.Property<string>("HouseNumber")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDefault")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Landmark")
                         .HasColumnType("nvarchar(max)");
@@ -287,9 +287,6 @@ namespace Dine.DataModel.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Currency")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
@@ -302,7 +299,7 @@ namespace Dine.DataModel.Migrations
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Success")
+                    b.Property<bool>("Status")
                         .HasColumnType("bit");
 
                     b.Property<long>("UserId")
@@ -415,9 +412,6 @@ namespace Dine.DataModel.Migrations
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int");
 
-                    b.Property<byte>("ReviewStar")
-                        .HasColumnType("tinyint");
-
                     b.Property<string>("ReviewText")
                         .HasColumnType("nvarchar(max)");
 
@@ -443,15 +437,6 @@ namespace Dine.DataModel.Migrations
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<DateOnly>("BirthDay")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
 
                     b.Property<long>("DefaultAddressId")
                         .HasColumnType("bigint");

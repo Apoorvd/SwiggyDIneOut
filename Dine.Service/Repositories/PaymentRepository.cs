@@ -10,12 +10,16 @@ namespace Dine.Service.Repositories
 {
     public class PaymentRepository : IPaymentRepository
     {
-        public List<Payment> GetAllPaymentbyUser(int userId)
+        public Task<List<Payment>> GetAllPaymentbyUser(long userId)
         {
             throw new NotImplementedException();
         }
 
         public Payment GetPayment(int id)
+        {
+            throw new NotImplementedException();
+        }
+        public async Task<Payment> GetLastPayment(long userId)
         {
             throw new NotImplementedException();
         }

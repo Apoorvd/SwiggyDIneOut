@@ -16,5 +16,6 @@ namespace Dine.DataModel.Models
         public string PostalCode { get; set; }
         public string Landmark { get; set; }
         public long UserId { get; set; }
+        public bool IsDefault { get; set; }
     }
 }

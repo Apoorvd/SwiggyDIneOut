@@ -31,6 +31,7 @@ namespace Dine.Service.Repositories
         public async Task<User> GetUserById(long userId)
         {
             var result = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            result.Password = CryptHelper.DecryptionHelper(result.Password, "YourSecretKey12345678901", "abcdefghi4");
             return result;
         }
 

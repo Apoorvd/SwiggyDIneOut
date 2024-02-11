@@ -14,13 +14,16 @@ namespace Dine.DataModel.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
+        public DateOnly BirthDay { get; set; }
         public bool EmailConfirmed { get; set; }
         = false;
         public long DefaultAddressId { get; set; } = 0;
         public virtual UserTypeEnum UserTypeEnum { get; set; }
         public int UserTypeId { get; set; }
         public ICollection<Address> AddressList { get; set; }
-        public ICollection<Review> ReviewList { get; set; }
-        public ICollection<Payment> PaymentList { get; set; }
+        public ICollection<Review> ReviewList { get;  }
+        public ICollection<Payment> PaymentList { get;  }
     }
 }

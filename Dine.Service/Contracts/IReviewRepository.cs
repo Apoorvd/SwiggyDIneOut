@@ -10,10 +10,9 @@ namespace Dine.Service.Contracts
     public interface IReviewRepository
     {
         Review GetReview(int id);
-        Review GetAllReviewforUser(int userId);
+        Task<Review> GetAllReviewforUser(long userId, bool getLastTenReview);
         Review PostReview(Review review);
         Review UpdateReview(Review review);
         Review DeleteReview(int id);
-
     }
 }

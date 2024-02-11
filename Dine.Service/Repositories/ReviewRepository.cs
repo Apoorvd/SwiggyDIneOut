@@ -15,7 +15,7 @@ namespace Dine.Service.Repositories
             throw new NotImplementedException();
         }
 
-        public Review GetAllReviewforUser(int userId)
+        public async Task<Review> GetAllReviewforUser(long userId, bool getLastTenReview)
         {
             throw new NotImplementedException();
         }

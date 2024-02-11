@@ -27,6 +27,12 @@ namespace Dine.Service.Repositories
             var result = await _dbContext.Address.FirstOrDefaultAsync(x => x.Id == Id);
             return result == null ? 0 : result.Id;
         }
+        public async Task<long> GetDefaultAddress(long userId)
+        {
+            var result = await _dbContext.Address.FirstOrDefaultAsync(x => x.UserId == userId && x.IsDefault == true);
+            return result == null ? 0 : result.Id;
+        }
+
         public async Task<Address> GetAddress(long Id)
         {
             var result = await _dbContext.Address.FirstOrDefaultAsync(x => x.Id == Id);
@@ -45,7 +51,8 @@ namespace Dine.Service.Repositories
 
         public async Task<List<Address>> GetAddressByUserID(long userID)
         {
-            var result = await _dbContext.Address.Include(u => u.UserId == userID).ToListAsync();
+            var result = await _dbContext.Address.Where(u => u.UserId == userID).ToListAsync();
+            int a = 0;
             return result;
         }
 

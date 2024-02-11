@@ -14,7 +14,8 @@ namespace Dine.DataModel.Models
         public int OrderId { get; set; }
         public int RestaurantId { get; set; }
         public float Amount { get; set; }
-        public bool Status { get; set; } = false;
+        public string Currency {  get; set; }
+        public bool Success { get; set; } = false;
         public DateTime PaymentTime { get; set; }
         public DateTime CreatedAt { get; set; }
     }

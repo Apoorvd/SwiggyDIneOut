@@ -1,5 +1,15 @@
 ﻿using Dine.DataModel.ContextModel;
+using Dine.DataModel.Models;
+using Dine.GQLSchema;
+using Dine.GQLSchema.GraphMutation;
+using Dine.GQLSchema.GraphQuery;
+using Dine.GQLTypes.QueryType;
+using Dine.Service.Contracts;
+using Dine.Service.Repositories;
 using Dine.Utilities.SeedDataUtil;
+using GraphiQl;
+using GraphQL;
+using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,16 +34,32 @@ namespace DineOut.API
             // Add services to the container.
 
             // Add DbContext -- all manual steps 
-            var builder = new DbContextOptionsBuilder<DineOutGQLDbContext>();
-            var connectionString = Configuration.GetConnectionString("DineOutGQLDbContextConnection");
-            services.AddDbContext<DineOutGQLDbContext>(option => builder.UseSqlServer(connectionString));
+            //var builder = new DbContextOptionsBuilder<DineOutGQLDbContext>();
+            //var connectionString = Configuration.GetConnectionString("DineOutGQLDbContextConnection");
+            //services.AddDbContext<DineOutGQLDbContext>(option => builder.UseSqlServer(connectionString));
 
-
-            
 
             //Add DbContext --- lambda
-            //services.AddDbContext<DineOutGQLDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DineOutGQLDbContextConnection")));
+            services.AddDbContext<DineOutGQLDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DineOutGQLDbContextConnection")));
             services.AddControllers();
+            services.AddTransient<User>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IAddressRepository, AddressRepository>();
+            services.AddTransient<IReviewRepository, ReviewRepository>();
+            services.AddTransient<IPaymentRepository, PaymentRepository>();
+
+            services.AddTransient<UserQType>();
+            services.AddTransient<AddressType>();
+            services.AddTransient<ReviewType>();
+            services.AddTransient<PaymentType>();
+
+            services.AddTransient<UserQuery>();
+            services.AddTransient<RootQuery>();
+            services.AddTransient<ISchema, RootSchema>();
+
+
+            services.AddTransient<RootMutation>();
+            services.AddGraphQL(b => b.AddAutoSchema<ISchema>().AddSystemTextJson());
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             //builder.Services.AddSwaggerGen();
@@ -67,12 +93,19 @@ namespace DineOut.API
             //app.UseMvc();
 
             #region Custom seed data
-            var context = app.Services.GetRequiredService<DineOutGQLDbContext>();
-            DineOutSeedData.EnsureEnumSeedData(context);
+            using (var scope = app.Services.CreateScope())
+            {
+                using DineOutGQLDbContext context  = scope.ServiceProvider.GetRequiredService<DineOutGQLDbContext>();
+                DineOutSeedData.EnsureEnumSeedData(context);
+            }
             #endregion
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseGraphiQl("/graphql");
+
+            app.UseGraphQL<ISchema>();
+
+ //           app.UseAuthorization();
 
             app.MapControllers();
 

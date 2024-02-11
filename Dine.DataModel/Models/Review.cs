@@ -14,6 +14,7 @@ namespace Dine.DataModel.Models
         public long UserId { get; set; }
         public string ReviewText { get; set; }
         public string ReviewTitle { get; set;}
+        public byte ReviewStar {  get; set; }
 
     }
 }
